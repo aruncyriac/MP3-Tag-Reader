@@ -70,7 +70,7 @@ Status do_reading(Data *data,char tags[][5],File *file)
             data->content_type = (char *)malloc(size);
             fseek(file->fptr,3,SEEK_CUR);
             fread(data->content_type,(size -1),1,file->fptr);
-            printf("%d\n",ftell(file->fptr));
+            //printf("%d\n",ftell(file->fptr));
         }
         else if(strcmp(temp,tags[5]) == 0)
         {
@@ -78,8 +78,8 @@ Status do_reading(Data *data,char tags[][5],File *file)
             printf("%d\n",size);
             data->composer = (char *)malloc(size);
             fseek(file->fptr,3,SEEK_CUR);
-            //fread(data->composer,(size -1),1,file->fptr);
-            printf("%d %d %s\n",ftell(file->fptr),fread(data->composer,1,(size-1),file->fptr),data->composer);
+            fread(data->composer,(size -1),1,file->fptr);
+            //printf("%d %d %s\n",ftell(file->fptr),fread(data->composer,1,(size-1),file->fptr),data->composer);
         }
     }
     //display(data);

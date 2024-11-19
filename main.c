@@ -3,13 +3,16 @@
 #include<stdlib.h>
 #include"read.h"
 #include"common.h"
+#include"edit.h"
 
 int main(int argc,char *argv[])
 {
     char tags[6][5] = {"TPE1","TIT2","TALB","TYER","TCON","COMM"};
+    char tag[5];
     Operation op;
     File file;
     Data *data = (Data *)malloc(sizeof(Data));
+    op = check_operation(argv[1]);
     if(op == read)
     {
         if(argc > 2)
@@ -24,12 +27,21 @@ int main(int argc,char *argv[])
             if(do_reading(data,tags,&file) == success)
             {
                 display(data);
+                fclose(file.fptr);
+                return 0;
             }
         }
     }
     else if(op == write)
     {
-        //write data
+        if(read_validate(argv,argc,tag,tags) == success)
+        {
+            printf("%s\n",tag);
+        }
+        else
+        {
+            display_error();
+        }
     }
     else 
     {
