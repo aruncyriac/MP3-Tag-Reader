@@ -34,9 +34,27 @@ int main(int argc,char *argv[])
     }
     else if(op == write)
     {
-        if(read_validate(argv,argc,tag,tags) == success)
+        if(argc > 1)
         {
-            printf("%s\n",tag);
+            if(read_validate(argv,argc,tag,tags) == success)
+            {
+                file.file_name = argv[2];
+                file.tag = tag;
+                printf("%s\n",file.file_name);
+                if(do_editing(&file,tag) == success)
+                {
+
+                }
+                else
+                {
+                    printf("ERROR:Failed to edit\n");
+                    return 0;
+                }
+            }
+            else
+            {
+                display_error();
+            }
         }
         else
         {

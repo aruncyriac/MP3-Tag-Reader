@@ -14,7 +14,9 @@ typedef enum
 typedef struct 
 {
     char *file_name;
+    char *tag;
     FILE *fptr;
+    FILE *fptr_temp;
 }File;
 
     
