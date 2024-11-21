@@ -9,7 +9,7 @@ maintaining the structure, and writes back changes.Here we use a temp file and r
 To view mp3 file contents<br>
 INFO:./a.out -v '<file'>  <br>
 To edit mp3 file contents <br>
-'<Tags>' <br>
+'<Tags'> <br>
  -t -> to edit song title<br>
  -a -> to edit artist name<br>
  -A -> to edit album name<br>
