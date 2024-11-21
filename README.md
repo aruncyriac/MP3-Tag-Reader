@@ -6,14 +6,14 @@ frame has a 10-byte header (frame ID, size, and flags), followed by its content.
 parses frame data, and displays it. For editing, it locates the relevant frame, modifies its content while
 maintaining the structure, and writes back changes.Here we use a temp file and rewrite it back to orginal file
 
-To view mp3 file contents
-INFO:./a.out -v <file>
-To edit mp3 file contents
-<Tags>
- -t -> to edit song title
- -a -> to edit artist name
- -A -> to edit album name
- -y -> to edit year
- -M -> to edit content
- -c -> to edit comment
-INFO:./a.out -w <file> <tag>
+To view mp3 file contents<br>
+INFO:./a.out -v <file> <br>
+To edit mp3 file contents <br>
+<Tags> <br>
+ -t -> to edit song title<br>
+ -a -> to edit artist name<br>
+ -A -> to edit album name<br>
+ -y -> to edit year<br>
+ -M -> to edit content<br>
+ -c -> to edit comment<br>
+INFO:./a.out -w <file> <tag> <br>
