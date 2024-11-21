@@ -7,7 +7,7 @@ parses frame data, and displays it. For editing, it locates the relevant frame, 
 maintaining the structure, and writes back changes.Here we use a temp file and rewrite it back to orginal file
 
 To view mp3 file contents<br>
-INFO:./a.out -v '<file'>  <br>
+INFO:./a.out -v '<file>  <br>
 To edit mp3 file contents <br>
 '<Tags'> <br>
  -t -> to edit song title<br>
