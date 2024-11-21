@@ -1,3 +1,28 @@
+/*
+Name: Arun Cyriac
+Date:20-11-2024
+
+Description:
+
+To create an MP3 ID3v2.3 tag reader and editor, you need to handle the tag's structure, parse the first six common
+frames (TIT2 for title, TPE1 for artist, TALB for album, TYER for year, TCON for content, and COMM for comment), 
+and allow modification. ID3v2.3 starts with a 10-byte header containing metadata and the tag's total size. Each 
+frame has a 10-byte header (frame ID, size, and flags), followed by its content. The program reads the header, 
+parses frame data, and displays it. For editing, it locates the relevant frame, modifies its content while
+maintaining the structure, and writes back changes.Here we use a temp file and rewrite it back to orginal file
+
+To view mp3 file contents
+INFO:./a.out -v <file>
+To edit mp3 file contents
+<Tags>
+ -t -> to edit song title
+ -a -> to edit artist name
+ -A -> to edit album name
+ -y -> to edit year
+ -M -> to edit content
+ -c -> to edit comment
+INFO:./a.out -w <file> <tag>
+*/
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
@@ -29,7 +54,8 @@ int main(int argc,char *argv[])
             //errror handling
             if(strstr(file.file_name,".mp3") == NULL)
             {
-                printf("ERROR:Invalid file format\n");
+                printf("ERROR:Invalid file format\n\n");
+                display_error();
                 return 0;
             }
             file.fptr = fopen(file.file_name,"r");//open file

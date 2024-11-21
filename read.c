@@ -1,3 +1,4 @@
+
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
@@ -6,12 +7,24 @@
 
 void display_error()
 {
-    //function print error message
+    printf("-----------HELP MENU-----------\n");
+    printf("To view mp3 file contents \n");
+     printf("INFO:./a.out -v <file>\n");
+    printf("To edit mp3 file contents \n");
+    printf("<Tags>\n");
+    printf(" -t -> to edit song title\n");
+    printf(" -a -> to edit artist name\n");
+    printf(" -A -> to edit album name\n");
+    printf(" -y -> to edit year\n");
+    printf(" -M -> to edit content\n");
+    printf(" -c -> to edit comment\n");
+    printf("INFO:./a.out -w <file> <tag>\n");
+    printf("----------------------------------\n");
 
 }
 int big_to_little(int value)
 {
-    //function to convert bigendian to little endian
+    //function to convert bigendian to little endian and vice versa
     return  ((value & 0xFF000000) >> 24) |((value & 0x00FF0000) >> 8) |((value & 0x0000FF00) << 8) |((value & 0x000000FF) << 24);
 }
 void display(Data *data)
