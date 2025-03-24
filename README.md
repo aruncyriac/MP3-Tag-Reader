@@ -1,19 +1,41 @@
 # MP3-Tag-Reader
-To create an MP3 ID3v2.3 tag reader and editor, you need to handle the tag's structure, parse the first six common
-frames (TIT2 for title, TPE1 for artist, TALB for album, TYER for year, TCON for content, and COMM for comment), 
-and allow modification. ID3v2.3 starts with a 10-byte header containing metadata and the tag's total size. Each 
-frame has a 10-byte header (frame ID, size, and flags), followed by its content. The program reads the header, 
-parses frame data, and displays it. For editing, it locates the relevant frame, modifies its content while
-maintaining the structure, and writes back changes.Here we use a temp file and rewrite it back to orginal file
 
-To view mp3 file contents<br>
-INFO:./a.out -v \<file\>  <br>
-To edit mp3 file contents <br>
-\<Tags\> <br>
- -t -> to edit song title<br>
- -a -> to edit artist name<br>
- -A -> to edit album name<br>
- -y -> to edit year<br>
- -M -> to edit content<br>
- -c -> to edit comment<br>
-INFO:./a.out -w \<file\> \<tag\>  <br>
+## Overview
+MP3-Tag-Reader is a command-line tool for reading and editing ID3v2.3 tags in MP3 files. It parses common metadata fields such as title, artist, album, year, genre, and comments, allowing users to view and modify them.
+
+## Features
+- **Read MP3 Metadata**: Extracts ID3v2.3 tags, displaying song details.
+- **Edit Tags**: Modifies specific metadata fields while preserving the MP3 structure.
+- **Efficient Parsing**: Reads frame headers and updates only the required data.
+- **Temporary File Handling**: Uses a temp file to ensure data integrity before writing changes back.
+
+## How It Works
+- **ID3v2.3 Structure**: 
+  - The first 10 bytes contain metadata and tag size.
+  - Each frame includes a 10-byte header with an ID, size, and flags, followed by content.
+- **Editing Process**:
+  - The program locates a frame, modifies its content, and updates the file without corruption.
+
+## Usage
+### View MP3 file metadata:
+```
+./a.out -v <file>
+```
+### Edit MP3 file metadata:
+**Tags:**
+- `-t` → Edit song title
+- `-a` → Edit artist name
+- `-A` → Edit album name
+- `-y` → Edit year
+- `-M` → Edit genre
+- `-c` → Edit comment
+
+**Example:**
+```
+./a.out -w <file> <tag>
+```
+
+## Notes
+- The tool ensures minimal data loss by carefully modifying only the necessary tag fields.
+- It uses temporary files to apply changes safely.
+
